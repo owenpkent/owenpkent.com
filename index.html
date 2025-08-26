@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth" data-theme>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Owen P Kent — Filmmaker, Engineer, Advocate</title>
+    <meta name="description" content="I’m Owen P Kent — a filmmaker, engineer, and advocate building projects at the intersection of creativity and accessibility." />
+
+    <!-- Favicon (placeholder) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%2300BFB3'/%3E%3Ctext x='50' y='60' font-size='55' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EOK%3C/text%3E%3C/svg%3E" />
+
+    <!-- Tailwind v3 CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Tailwind configuration with custom palette
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              sun: '#FFE85B',
+              palm: '#00A68C',
+              wave: '#00BFB3',
+              surf: '#FF6FAF',
+              sky: '#FBB6CE',
+              sand: '#F9E4CC',
+              charcoal: '#2E2E2E',
+              lightSurface: '#FFFFFF',
+              lightTextSecondary: '#475569',
+              darkSurface: '#1E293B',
+              darkTextSecondary: '#CBD5E1',
+              success: '#22C55E',
+              warning: '#EAB308',
+              error: '#EF4444',
+            },
+            boxShadow: {
+              soft: '0 10px 30px rgba(0,0,0,0.08)'
+            },
+            fontFamily: {
+              display: ['Inter', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+              body: ['Inter', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+            }
+          }
+        }
+      };
+    </script>
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+      /* Smooth color transitions */
+      .theme-transition * { transition: color .2s ease, background-color .2s ease, border-color .2s ease; }
+    </style>
+
+    <script>
+      // Theme: respect prefers-color-scheme, persist in localStorage
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const html = document.documentElement;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          html.classList.add('dark');
+        } else {
+          html.classList.remove('dark');
+        }
+      })();
+    </script>
+  </head>
+
+  <body class="font-body bg-lightSurface text-charcoal dark:bg-darkSurface dark:text-darkTextSecondary theme-transition">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-wave text-white px-3 py-2 rounded">Skip to content</a>
+
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-darkSurface/70 border-b border-slate-200/60 dark:border-slate-700/60">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex items-center justify-between h-16">
+          <a href="#" class="inline-flex items-center gap-2">
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-wave text-white font-bold">OK</span>
+            <span class="font-semibold tracking-tight">Owen P Kent</span>
+          </a>
+
+          <nav class="hidden md:flex items-center gap-6 text-sm">
+            <a href="#about" class="hover:text-wave">About</a>
+            <a href="#projects" class="hover:text-wave">Projects</a>
+            <a href="#media" class="hover:text-wave">Media</a>
+            <a href="#contact" class="hover:text-wave">Contact</a>
+          </nav>
+
+          <div class="flex items-center gap-2">
+            <button id="themeToggle" class="inline-flex items-center gap-2 rounded-md border border-slate-300 dark:border-slate-600 px-3 py-2 text-sm hover:bg-sand/60 dark:hover:bg-slate-800" aria-label="Toggle dark mode">
+              <svg class="h-4 w-4 hidden dark:block" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.64 13a1 1 0 0 0-1.05-.14A8 8 0 0 1 11.1 4.41a1 1 0 0 0-1.19-1.21A10 10 0 1 0 22 14.1a1 1 0 0 0-.36-1.1Z"/></svg>
+              <svg class="h-4 w-4 dark:hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.8 1.8-1.8Zm10.48 14.32l1.79 1.8 1.79-1.8-1.79-1.79-1.79 1.79ZM12 4V1h-0v3h0Zm0 19v-3h0v3h0ZM4 12H1v0h3v0Zm19 0h-3v0h3v0ZM4.84 19.16l-1.8 1.79 1.8 1.8 1.79-1.8-1.79-1.79ZM19.16 4.84l1.79-1.79-1.79-1.8-1.79 1.8 1.79 1.79ZM12 7a5 5 0 100 10 5 5 0 000-10Z"/></svg>
+              <span class="hidden sm:inline">Theme</span>
+            </button>
+            <button class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-md border border-slate-300 dark:border-slate-600" id="mobileMenuBtn" aria-label="Open menu">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- mobile menu -->
+      <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 dark:border-slate-700">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-col gap-2">
+          <a href="#about" class="py-2 hover:text-wave">About</a>
+          <a href="#projects" class="py-2 hover:text-wave">Projects</a>
+          <a href="#media" class="py-2 hover:text-wave">Media</a>
+          <a href="#contact" class="py-2 hover:text-wave">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Hero -->
+      <section class="relative overflow-hidden min-h-[50vh]">
+        <div class="absolute inset-0 z-0 opacity-100 pointer-events-none" aria-hidden="true">
+          <canvas id="heroParticles" class="absolute inset-0 w-full h-full" aria-hidden="true"></canvas>
+        </div>
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
+          <div class="grid md:grid-cols-12 gap-8 items-center">
+            <div class="md:col-span-7">
+              <h1 id="heroTitle" class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                <span class="kt">I’m</span>
+                <span id="nameMark" class="kt text-wave">Owen P Kent</span>
+                <span class="kt text-charcoal dark:text-white">— filmmaker, engineer, and advocate.</span>
+              </h1>
+              <p class="mt-6 text-lg text-lightTextSecondary dark:text-darkTextSecondary max-w-2xl">
+                I build at the intersection of creativity and accessibility. Through <span class="font-semibold text-palm">ATDev</span>, I design mobility solutions that expand independence. With <span class="font-semibold text-surf">OKStudio</span>, I produce films, livestreams, and aerial cinematography that tell stories from new perspectives.
+              </p>
+              <div class="mt-8 flex flex-wrap gap-3">
+                <a href="#projects" class="inline-flex items-center gap-2 rounded-lg bg-wave text-white px-5 py-3 font-medium shadow-soft hover:opacity-90">Explore Projects</a>
+                <a href="#contact" class="inline-flex items-center gap-2 rounded-lg border border-slate-300 dark:border-slate-600 px-5 py-3 font-medium hover:bg-sand/60 dark:hover:bg-slate-800">Get in Touch</a>
+              </div>
+            </div>
+            <div class="md:col-span-5">
+              <div class="rounded-2xl p-1 bg-gradient-to-br from-sky via-sun to-surf">
+                <div class="rounded-2xl p-8 bg-lightSurface dark:bg-darkSurface h-full">
+                  <ul class="space-y-3">
+                    <li class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-wave"></span><span class="text-sm">Angels of Mercy — a feature exploring authentic disability representation</span></li>
+                    <li class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-palm"></span><span class="text-sm">ATDev — mobility solutions that expand independence</span></li>
+                    <li class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-surf"></span><span class="text-sm">OKStudio — films, livestreams, aerial cinematography</span></li>
+                    <li class="flex items-center gap-3"><span class="h-2.5 w-2.5 rounded-full bg-sun"></span><span class="text-sm">YouTube & Twitch — art, technology, and real conversation</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="py-16 sm:py-24 bg-sand/40 dark:bg-slate-900/40">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+          <h2 class="text-2xl font-bold">About</h2>
+          <p class="mt-4 text-slate-600 dark:text-darkTextSecondary">
+            I’m Owen P Kent — a filmmaker, engineer, and advocate building projects at the intersection of creativity and accessibility. My feature film <span class="font-semibold">Angels of Mercy</span> explores authentic disability representation, while my YouTube and Twitch channels connect communities through art, technology, and real conversation. Across everything I do, the mission is clear: <span class="font-semibold text-charcoal dark:text-white">disability does not equal disadvantage</span>.
+          </p>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="py-16 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="flex items-end justify-between flex-wrap gap-4">
+            <h2 class="text-2xl font-bold">Projects</h2>
+            <a href="#contact" class="text-sm text-wave hover:underline">Work with me</a>
+          </div>
+          <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- ATDev card -->
+            <article class="rounded-xl border border-slate-200 dark:border-slate-700 bg-lightSurface dark:bg-slate-900 p-6 hover:shadow-soft transition">
+              <div class="text-xs font-semibold text-palm">ATDev</div>
+              <h3 class="mt-2 font-semibold">Assistive Technology & Mobility</h3>
+              <p class="mt-2 text-sm text-lightTextSecondary dark:text-darkTextSecondary">Designing mobility solutions that expand independence and accessibility.</p>
+              <div class="mt-4 flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-palm/10 text-palm text-xs px-2.5 py-1">Design</span>
+                <span class="inline-flex items-center rounded-full bg-sun/10 text-charcoal text-xs px-2.5 py-1">Accessibility</span>
+              </div>
+            </article>
+
+            <!-- OKStudio card -->
+            <article class="rounded-xl border border-slate-200 dark:border-slate-700 bg-lightSurface dark:bg-slate-900 p-6 hover:shadow-soft transition">
+              <div class="text-xs font-semibold text-surf">OKStudio</div>
+              <h3 class="mt-2 font-semibold">Film, Live, Aerial</h3>
+              <p class="mt-2 text-sm text-lightTextSecondary dark:text-darkTextSecondary">Producing films, livestreams, and aerial cinematography that tell stories from new perspectives.</p>
+              <div class="mt-4 flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-surf/10 text-surf text-xs px-2.5 py-1">Production</span>
+                <span class="inline-flex items-center rounded-full bg-wave/10 text-wave text-xs px-2.5 py-1">Post</span>
+              </div>
+            </article>
+
+            <!-- Angels of Mercy card -->
+            <article class="rounded-xl border border-slate-200 dark:border-slate-700 bg-lightSurface dark:bg-slate-900 p-6 hover:shadow-soft transition">
+              <div class="text-xs font-semibold text-wave">Angels of Mercy</div>
+              <h3 class="mt-2 font-semibold">Feature Film</h3>
+              <p class="mt-2 text-sm text-lightTextSecondary dark:text-darkTextSecondary">Exploring authentic disability representation through narrative film.</p>
+              <div class="mt-4 flex items-center gap-2">
+                <span class="inline-flex items-center rounded-full bg-sky/30 text-charcoal dark:text-darkTextSecondary text-xs px-2.5 py-1">Story</span>
+                <span class="inline-flex items-center rounded-full bg-sun/10 text-charcoal text-xs px-2.5 py-1">Advocacy</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Media / Links -->
+      <section id="media" class="py-16 sm:py-24 bg-sand/40 dark:bg-slate-900/40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 class="text-2xl font-bold">Media & Links</h2>
+          <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <a class="group rounded-lg border border-slate-200 dark:border-slate-700 p-4 bg-lightSurface dark:bg-slate-900 hover:shadow-soft transition" href="#" aria-label="YouTube">
+              <div class="flex items-center gap-3">
+                <span class="h-9 w-9 rounded-md bg-surf/10 text-surf inline-flex items-center justify-center">▶</span>
+                <div>
+                  <div class="font-medium group-hover:text-surf">YouTube</div>
+                  <div class="text-xs text-lightTextSecondary dark:text-darkTextSecondary">Videos & behind-the-scenes</div>
+                </div>
+              </div>
+            </a>
+            <a class="group rounded-lg border border-slate-200 dark:border-slate-700 p-4 bg-lightSurface dark:bg-slate-900 hover:shadow-soft transition" href="#" aria-label="Twitch">
+              <div class="flex items-center gap-3">
+                <span class="h-9 w-9 rounded-md bg-wave/10 text-wave inline-flex items-center justify-center">🔴</span>
+                <div>
+                  <div class="font-medium group-hover:text-wave">Twitch</div>
+                  <div class="text-xs text-lightTextSecondary dark:text-darkTextSecondary">Live conversations</div>
+                </div>
+              </div>
+            </a>
+            <a class="group rounded-lg border border-slate-200 dark:border-slate-700 p-4 bg-lightSurface dark:bg-slate-900 hover:shadow-soft transition" href="#" aria-label="OKStudio">
+              <div class="flex items-center gap-3">
+                <span class="h-9 w-9 rounded-md bg-sun text-charcoal inline-flex items-center justify-center">OK</span>
+                <div>
+                  <div class="font-medium group-hover:text-sun">OKStudio</div>
+                  <div class="text-xs text-lightTextSecondary dark:text-darkTextSecondary">Production work</div>
+                </div>
+              </div>
+            </a>
+            <a class="group rounded-lg border border-slate-200 dark:border-slate-700 p-4 bg-lightSurface dark:bg-slate-900 hover:shadow-soft transition" href="#" aria-label="ATDev">
+              <div class="flex items-center gap-3">
+                <span class="h-9 w-9 rounded-md bg-palm text-white inline-flex items-center justify-center">AT</span>
+                <div>
+                  <div class="font-medium group-hover:text-palm">ATDev</div>
+                  <div class="text-xs text-lightTextSecondary dark:text-darkTextSecondary">Assistive tech</div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact / CTA -->
+      <section id="contact" class="py-16 sm:py-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <h2 class="text-2xl font-bold">Let’s build something that matters</h2>
+          <p class="mt-3 text-lightTextSecondary dark:text-darkTextSecondary">Have a project or collaboration in mind? I’d love to hear from you.</p>
+          <div class="mt-6 flex flex-wrap justify-center gap-3">
+            <a href="mailto:hello@owenpkent.com" class="inline-flex items-center gap-2 rounded-lg bg-wave text-white px-5 py-3 font-medium shadow-soft hover:opacity-90">Email Me</a>
+            <a href="#" class="inline-flex items-center gap-2 rounded-lg bg-surf text-white px-5 py-3 font-medium shadow-soft hover:opacity-90">Watch Angels of Mercy</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-10 border-t border-slate-200 dark:border-slate-700">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 text-sm text-lightTextSecondary dark:text-darkTextSecondary">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p>© <span id="year"></span> Owen P Kent. All rights reserved.</p>
+          <div class="flex items-center gap-3">
+            <a class="hover:text-wave" href="#">Twitter/X</a>
+            <span aria-hidden="true">·</span>
+            <a class="hover:text-wave" href="#">Instagram</a>
+            <span aria-hidden="true">·</span>
+            <a class="hover:text-wave" href="#">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
