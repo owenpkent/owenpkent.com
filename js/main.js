@@ -32,6 +32,65 @@
     }));
   }
 
+  // In-page anchor navigation: smooth scroll with focus management
+  (function () {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function focusTarget(el) {
+      if (!el) return;
+      if (!el.hasAttribute('tabindex')) {
+        el.setAttribute('tabindex', '-1');
+        el.addEventListener('blur', () => el.removeAttribute('tabindex'), { once: true });
+      }
+      try { el.focus({ preventScroll: true }); } catch (_) { el.focus(); }
+    }
+
+    function scrollToEl(el, smooth) {
+      const rect = el.getBoundingClientRect();
+      const top = rect.top + (window.pageYOffset || document.documentElement.scrollTop);
+      window.scrollTo({ top, behavior: smooth ? 'smooth' : 'auto' });
+    }
+
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (!href || href === '#') return;
+      const id = href.slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+
+      const isSkipLink = href === '#main' || a.classList.contains('sr-only');
+      const smooth = !prefersReduced && !isSkipLink;
+
+      scrollToEl(target, smooth);
+      if (smooth) {
+        // Heuristic: focus shortly after scroll settles
+        let timeout = setTimeout(() => focusTarget(target), 350);
+        let lastY = window.scrollY;
+        const onScroll = () => {
+          const y = window.scrollY;
+          if (Math.abs(y - lastY) > 2) {
+            lastY = y;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+              focusTarget(target);
+              window.removeEventListener('scroll', onScroll);
+            }, 120);
+          }
+        };
+        window.addEventListener('scroll', onScroll);
+      } else {
+        focusTarget(target);
+      }
+
+      // Update the hash without causing a jump
+      if (history.pushState) history.pushState(null, '', href);
+      else location.hash = href;
+    }, { passive: false });
+  })();
+
   // Parallax: subtle background motion on elements with [data-parallax]
   const parallaxEls = Array.from(document.querySelectorAll('[data-parallax]'));
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
