@@ -6,8 +6,9 @@
     <title>Owen P Kent — Filmmaker, Engineer, Advocate</title>
     <meta name="description" content="I’m Owen P Kent — a filmmaker, engineer, and advocate building projects at the intersection of creativity and accessibility." />
 
-    <!-- Favicon (placeholder) -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%2300BFB3'/%3E%3Ctext x='50' y='60' font-size='55' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EOK%3C/text%3E%3C/svg%3E" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./Enso.png" />
+    <link rel="shortcut icon" type="image/png" href="./Enso.png" />
 
     <!-- Tailwind v3 CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -69,18 +70,18 @@
     </script>
   </head>
 
-  <body class="font-body bg-lightSurface text-charcoal dark:bg-darkSurface dark:text-darkTextSecondary theme-transition">
+  <body class="font-body bg-lightSurface text-charcoal dark:bg-darkSurface dark:text-darkTextSecondary theme-transition min-h-screen flex flex-col">
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-wave text-white px-3 py-2 rounded">Skip to content</a>
 
     <!-- Header -->
-    <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-darkSurface/70 border-b border-slate-200/60 dark:border-slate-700/60">
+    <header class="sticky top-0 z-40 bg-darkSurface text-white border-b border-slate-700 shadow-sm">
       <div class="max-w-5xl mx-auto px-4 sm:px-6">
         <div class="flex items-center justify-between h-16">
           <a href="#" class="inline-flex items-center gap-2">
-            <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-wave text-white font-bold">OK</span>
+            <img src="./Enso.png" alt="Owen P Kent logo" class="h-8 w-8 rounded-lg object-cover" width="32" height="32" />
             <span class="font-semibold tracking-tight">Owen P Kent</span>
           </a>
-          <button id="themeToggle" class="inline-flex items-center gap-2 rounded-md border border-slate-300 dark:border-slate-600 px-3 py-2 text-sm hover:bg-sand/60 dark:hover:bg-slate-800" aria-label="Toggle dark mode">
+          <button id="themeToggle" class="inline-flex items-center gap-2 rounded-md border border-slate-600 px-3 py-2 text-sm text-white hover:bg-slate-800" aria-label="Toggle dark mode">
             <svg class="h-4 w-4 hidden dark:block" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.64 13a1 1 0 0 0-1.05-.14A8 8 0 0 1 11.1 4.41a1 1 0 0 0-1.19-1.21A10 10 0 1 0 22 14.1a1 1 0 0 0-.36-1.1Z"/></svg>
             <svg class="h-4 w-4 dark:hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.8 1.8-1.8Zm10.48 14.32l1.79 1.8 1.79-1.8-1.79-1.79-1.79 1.79ZM12 4V1h-0v3h0Zm0 19v-3h0v3h0ZM4 12H1v0h3v0Zm19 0h-3v0h3v0ZM4.84 19.16l-1.8 1.79 1.8 1.8 1.79-1.8-1.79-1.79ZM19.16 4.84l1.79-1.79-1.79-1.8-1.79 1.8 1.79 1.79ZM12 7a5 5 0 100 10 5 5 0 000-10Z"/></svg>
             <span class="hidden sm:inline">Theme</span>
@@ -89,24 +90,24 @@
       </div>
     </header>
 
-    <main id="main">
+    <main id="main" class="flex-1">
       <section class="relative overflow-hidden">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-24 sm:py-36 text-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10 text-center">
           <span class="inline-flex items-center gap-2 rounded-full border border-slate-300/70 dark:border-slate-700/70 px-3 py-1 text-xs text-lightTextSecondary dark:text-darkTextSecondary">Site update in progress</span>
-          <h1 class="mt-5 text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-charcoal dark:text-white">Coming Soon</h1>
-          <p class="mt-4 text-lg text-lightTextSecondary dark:text-darkTextSecondary">I’m rebuilding my website. In the meantime, connect or drop me a note.</p>
+          <h1 class="mt-2 text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight text-charcoal dark:text-white">Coming Soon</h1>
+          <p class="mt-2 text-lg text-lightTextSecondary dark:text-darkTextSecondary">I’m rebuilding my website. In the meantime, connect or drop me a note.</p>
 
-          <div class="mt-8 flex flex-wrap gap-3 justify-center">
-            <a href="https://www.linkedin.com/in/owenpkent" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-wave text-white px-5 py-3 font-medium shadow-soft hover:opacity-90">LinkedIn</a>
+          <div class="mt-5 flex flex-wrap gap-3 justify-center">
+            <a href="https://www.linkedin.com/in/owenpkent" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 text-white px-4 py-2.5 font-medium shadow-soft">LinkedIn</a>
           </div>
 
-          <div class="mt-10 max-w-xl mx-auto text-left">
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="rounded-xl border border-slate-200 dark:border-slate-700 bg-lightSurface dark:bg-slate-900 p-6 shadow-soft">
+          <div class="mt-5 max-w-xl mx-auto text-left">
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="rounded-xl border border-slate-200 dark:border-slate-700 bg-lightSurface dark:bg-slate-900 p-4 shadow-soft">
               <input type="hidden" name="form-name" value="contact" />
               <p class="hidden">
                 <label>Don’t fill this out: <input name="bot-field" /></label>
               </p>
-              <div class="grid gap-4">
+              <div class="grid gap-3">
                 <div>
                   <label class="block text-sm mb-1" for="name">Name</label>
                   <input id="name" name="name" type="text" required class="w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2" />
@@ -119,8 +120,8 @@
                   <label class="block text-sm mb-1" for="message">Message</label>
                   <textarea id="message" name="message" rows="4" required class="w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-2"></textarea>
                 </div>
-                <div class="pt-2">
-                  <button type="submit" class="inline-flex items-center gap-2 rounded-lg bg-surf text-white px-5 py-3 font-medium hover:opacity-90">Send</button>
+                <div class="pt-1.5">
+                  <button type="submit" class="inline-flex items-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 text-white px-4 py-2.5 font-medium">Send</button>
                 </div>
               </div>
             </form>
@@ -129,8 +130,8 @@
       </section>
     </main>
 
-    <footer class="py-10 border-t border-slate-200 dark:border-slate-700">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 text-sm text-lightTextSecondary dark:text-darkTextSecondary text-center">
+    <footer class="h-16 bg-darkSurface text-white border-t border-slate-700 shadow-sm">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 h-full flex items-center justify-center text-sm text-white/80 text-center">
         <p>© <span id="year"></span> Owen P Kent. All rights reserved.</p>
       </div>
     </footer>
