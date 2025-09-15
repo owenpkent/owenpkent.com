@@ -1,0 +1,12 @@
+{
+  "name": "owenpkent-website",
+  "version": "1.0.0",
+  "description": "Owen P Kent's personal website",
+  "scripts": {
+    "build-css": "tailwindcss -i ./src/input.css -o ./css/styles.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./css/styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

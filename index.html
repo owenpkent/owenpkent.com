@@ -10,52 +10,13 @@
     <link rel="icon" type="image/png" href="./Enso.png" />
     <link rel="shortcut icon" type="image/png" href="./Enso.png" />
 
-    <!-- Tailwind v3 CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      // Tailwind configuration with custom palette
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              sun: '#FFE85B',
-              palm: '#00A68C',
-              wave: '#00BFB3',
-              surf: '#FF6FAF',
-              sky: '#FBB6CE',
-              sand: '#F9E4CC',
-              charcoal: '#2E2E2E',
-              lightSurface: '#FFFFFF',
-              lightTextSecondary: '#475569',
-              darkSurface: '#1E293B',
-              darkTextSecondary: '#CBD5E1',
-              success: '#22C55E',
-              warning: '#EAB308',
-              error: '#EF4444',
-            },
-            boxShadow: {
-              soft: '0 10px 30px rgba(0,0,0,0.08)'
-            },
-            fontFamily: {
-              display: ['Inter', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-              body: ['Inter', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-            }
-          }
-        }
-      };
-    </script>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="./css/styles.css">
     <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
-      /* Smooth color transitions */
-      .theme-transition * { transition: color .2s ease, background-color .2s ease, border-color .2s ease; }
-      /* Ensure particles container spans viewport */
-      #tsparticles { width: 100vw; height: 100vh; }
-    </style>
 
     <script>
       // Theme: respect prefers-color-scheme, persist in localStorage
